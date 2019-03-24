@@ -6,6 +6,7 @@ import {
   Platform,
   TextInput,
   TouchableOpacity,
+  Image
  } from 'react-native';
 import firebase from 'firebase'
 import * as FirebaseAPI from '../modules/firebaseAPI';
@@ -53,9 +54,20 @@ export default class LoginScreen extends React.Component {
     return (
       <View style={styles.container}>
         <MenuButton navigation={this.props.navigation} />
+          <View style={styles.logoContainer} >
+            <MenuButton navigation={this.props.navigation} />
+         
+            <Image
+            style={styles.logo}
+            source={require('../assets/user.jpg')}
+             />
+          
+          </View> 
+          <View style={styles.formContainer}>
+          </View>
 
           <View style={styles.textContainer}>
-           <Text style={styles.text}>Create an account below</Text>
+           <Text style={styles.textInput}>Create an account below</Text>
             <TextInput 
               style={styles.textInput}
               onChangeText={(text) => this.setState({email: text})}
@@ -95,29 +107,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
     
     
   },
   textContainer: {
-    flex: 1,
+       padding: 20
+  },
+  logoContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
-    paddingTop: '50%',
+    flexGrow: 1,
+    justifyContent: 'flex-start'
+    
   },
-  textInput: {
-    fontSize: 17,
-    lineHeight: 24,
-    width: '75%',
+  textInput:{
+      height: 50,
+      backgroundColor: 'rgb(255, 204, 204)',
+      marginBottom: 20,
+      color: '#000000',
+      paddingHorizontal: 10
   },
+  logo:{
+    width: 100,
+    height: 100
+  },
+
   text: {
-    fontSize: 17,
-    color: 'rgba(96,100,109,1)',
-    lineHeight: 24,
-    width: '75%',
-    textAlign: 'center',
-    marginBottom: '10%',
-  },
-  
+    fontSize: 30,
+    
+  }
 });
