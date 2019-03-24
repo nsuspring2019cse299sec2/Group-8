@@ -6,7 +6,8 @@ import {
   Platform,
   TextInput,
   TouchableOpacity,
-  Image
+  Image,
+  KeyboardAvoidingView
  } from 'react-native';
 import firebase from 'firebase'
 import * as FirebaseAPI from '../modules/firebaseAPI';
@@ -23,8 +24,8 @@ export default class LoginScreen extends React.Component {
   };
 
   state = {
-    email: "Enter email",
-    password: "Enter password"
+    email: "",
+    password: ""
   };
 
   componentDidMount() {
@@ -52,6 +53,7 @@ export default class LoginScreen extends React.Component {
 
   render() {
     return (
+      
       <View style={styles.container}>
         <MenuButton navigation={this.props.navigation} />
           <View style={styles.logoContainer} >
@@ -61,31 +63,40 @@ export default class LoginScreen extends React.Component {
             style={styles.logo}
             source={require('../assets/user.jpg')}
              />
-          
+            <Text style={styles.title} >Create an account below</Text>   
           </View> 
+          
           <View style={styles.formContainer}>
+          
           </View>
-
+          
           <View style={styles.textContainer}>
-           <Text style={styles.textInput}>Create an account below</Text>
+           
             <TextInput 
+              placeholder="Enter your E-mail Address"
+              placeholderTextColor='rgb(64, 64, 64)'
+              
               style={styles.textInput}
               onChangeText={(text) => this.setState({email: text})}
               value={this.state.email}
             />
           <TextInput 
+            placeholder="Enter your Password"
+            placeholderTextColor='rgb(64, 64, 64)'
+            secureTextEntry
             style={styles.textInput}
             onChangeText={(text) => this.setState({password: text})}
             value={this.state.password}
           />
 
-          <TouchableOpacity
-            style={{marginTop: '5%'}}
+          <TouchableOpacity style={styles.buttonContainer}
+            
+           
             onPress={() => this.signIn()}
           >
-            <View>
-              <Text>Log In Existing</Text>
-            </View>
+            
+              <Text style={styles.buttonText}>Log In </Text>
+            
           </TouchableOpacity>
 
 
@@ -99,6 +110,7 @@ export default class LoginScreen extends React.Component {
           </TouchableOpacity>
         </View>
       </View>
+      
     );
   }
 
@@ -119,12 +131,24 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start'
     
   },
+  title:{
+    color:'#000000'
+  },
+  
   textInput:{
       height: 50,
       backgroundColor: 'rgb(255, 204, 204)',
       marginBottom: 20,
       color: '#000000',
       paddingHorizontal: 10
+  },
+  buttonContainer:{
+    backgroundColor: '#2980b9',
+    paddingVertical: 15
+  },
+  buttonText:{
+    textAlign: 'center',
+    fontWeight: '700'
   },
   logo:{
     width: 100,
