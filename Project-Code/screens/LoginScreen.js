@@ -103,13 +103,12 @@ export default class LoginScreen extends React.Component {
           </TouchableOpacity>
 
 
-          <TouchableOpacity
-            style={{marginTop: '5%'}}
+          <TouchableOpacity style={styles.buttonContainer2}
+            
             onPress={() => this.createUser()}
           >
-            <View>
-              <Text>Create New User</Text>
-            </View>
+            <Text style={styles.buttonText}>Create New User</Text>
+            
           </TouchableOpacity>
         
         </View>
@@ -142,14 +141,23 @@ const styles = StyleSheet.create({
   
   textInput:{
       height: 50,
-      backgroundColor: 'rgb(255, 204, 204)',
+      backgroundColor: 'rgb(255, 230, 242)',
       marginBottom: 20,
       color: '#000000',
       paddingHorizontal: 10
   },
   buttonContainer:{
     backgroundColor: '#2980b9',
+    marginBottom: 20,
     paddingVertical: 15
+    
+  },
+  buttonContainer2:{
+    backgroundColor: '#99004d',
+    marginBottom: 20,
+    paddingVertical: 8,
+    
+    
   },
   buttonText:{
     textAlign: 'center',
