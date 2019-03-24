@@ -75,7 +75,8 @@ export default class LoginScreen extends React.Component {
             <TextInput 
               placeholder="Enter your E-mail Address"
               placeholderTextColor='rgb(64, 64, 64)'
-              
+              returnKeyType="next"
+              keyboardType="email-address"
               style={styles.textInput}
               onChangeText={(text) => this.setState({email: text})}
               value={this.state.email}
@@ -83,8 +84,10 @@ export default class LoginScreen extends React.Component {
           <TextInput 
             placeholder="Enter your Password"
             placeholderTextColor='rgb(64, 64, 64)'
+            returnKeyType="go"
             secureTextEntry
             style={styles.textInput}
+           
             onChangeText={(text) => this.setState({password: text})}
             value={this.state.password}
           />
@@ -130,7 +133,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     flexGrow: 1,
-    justifyContent: 'flex-start'
+    justifyContent: 'center'
     
   },
   title:{
