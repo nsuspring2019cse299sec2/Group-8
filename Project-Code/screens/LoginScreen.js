@@ -53,7 +53,7 @@ export default class LoginScreen extends React.Component {
 
   render() {
     return (
-      
+      <KeyboardAvoidingView behavior='padding' style={styles.container}>
       <View style={styles.container}>
         <MenuButton navigation={this.props.navigation} />
           <View style={styles.logoContainer} >
@@ -108,8 +108,10 @@ export default class LoginScreen extends React.Component {
               <Text>Create New User</Text>
             </View>
           </TouchableOpacity>
+        
         </View>
       </View>
+      </KeyboardAvoidingView>
       
     );
   }
