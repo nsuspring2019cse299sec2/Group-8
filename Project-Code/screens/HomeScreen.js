@@ -21,9 +21,9 @@ export default class HomeScreen extends React.Component {
           appId="50193"
           token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidXNlci1vbmUifQ.fFBcOETlSM0KXy3d9MYYu3Kyzuw-wNtSoIQ4V8Lyi8k"
          >
-         <FlatFeed Activity={CustomActivity} />
+         <FlatFeed Activity={CustomActivity} notify />
          <StatusUpdateForm feedGroup="timeline" />
-      </StreamApp>
+        </StreamApp>
       </SafeAreaView>
       
     );
