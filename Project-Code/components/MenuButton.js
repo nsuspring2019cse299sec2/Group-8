@@ -8,7 +8,7 @@ export default class MenuButton extends React.Component {
 			<Ionicons
 				name="md-menu"
 				color="#000000"
-				size={32}
+				size={20}
 				style={styles.menuIcon}
 				onPress={() => this.props.navigation.toggleDrawer()}
 			/>
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 	menuIcon: {
 		zIndex: 9,
 		position: 'absolute',
-		top: 40,
-		left: 20,
+		top: 20,
+		left: 10,
 	}
 })
