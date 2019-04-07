@@ -1,15 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import SafeAreaView from 'react-native-safe-area-view';
+import { StreamApp, FlatFeed } from 'expo-activity-feed';
 import MenuButton from '../components/MenuButton'
 
 export default class HomeScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={{flex: 1}} forceInset={{ top: 'always' }}>
         <MenuButton navigation={this.props.navigation} />
-        <Text style={styles.text}>Home</Text>
-      </View>
+        <StreamApp
+          apiKey="25r4jbs5s9jg"
+          appId="50193"
+          token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidXNlci1vbmUifQ.fFBcOETlSM0KXy3d9MYYu3Kyzuw-wNtSoIQ4V8Lyi8k"
+         >
+         <FlatFeed />
+      </StreamApp>
+      </SafeAreaView>
     );
   }
 }
