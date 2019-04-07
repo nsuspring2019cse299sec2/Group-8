@@ -1,7 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SafeAreaView from 'react-native-safe-area-view';
-import { StreamApp, FlatFeed } from 'expo-activity-feed';
+import {
+  StreamApp,
+  FlatFeed,
+  Activity,
+  LikeButton,
+} from 'expo-activity-feed';
+
 import MenuButton from '../components/MenuButton'
 
 export default class HomeScreen extends React.Component {
@@ -14,12 +20,24 @@ export default class HomeScreen extends React.Component {
           appId="50193"
           token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoidXNlci1vbmUifQ.fFBcOETlSM0KXy3d9MYYu3Kyzuw-wNtSoIQ4V8Lyi8k"
          >
-         <FlatFeed />
+         <FlatFeed Activity={CustomActivity} />
       </StreamApp>
       </SafeAreaView>
+      
     );
   }
 }
+
+const CustomActivity = (props) => {
+  return (
+    <Activity
+      {...props}
+      Footer={
+        <LikeButton {...props} />
+      }
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
